@@ -88,7 +88,7 @@ pub fn query() -> eyre::Result<Vec<Entry>> {
     Ok(entries)
 }
 
-const IGNORE_PATTERNS: &'static [&'static str] = &[".git", ".svn", "target", "vendor"];
+const IGNORE_PATTERNS: [&str; 4] = [".git", ".svn", "target", "vendor"];
 
 fn ignore_entry(entry: &DirEntry) -> bool {
     entry
