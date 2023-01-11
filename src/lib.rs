@@ -79,13 +79,9 @@ pub fn query() -> eyre::Result<Vec<Entry>> {
         })
     })?;
 
-    let mut entries = Vec::new();
-
-    for entry in entry_iter {
-        entries.push(entry?);
-    }
-
-    Ok(entries)
+    entry_iter
+        .collect::<Result<Vec<_>, _>>()
+        .map_err(|e| eyre!("Error in query results: {:?}", e))
 }
 
 const IGNORE_PATTERNS: [&str; 4] = [".git", ".svn", "target", "vendor"];
