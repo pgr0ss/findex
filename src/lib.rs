@@ -1,5 +1,5 @@
 use camino::Utf8PathBuf;
-use color_eyre::{eyre, eyre::eyre};
+use color_eyre::eyre::{self, eyre};
 use rusqlite::Connection;
 use sha256::try_digest;
 use std::path::PathBuf;

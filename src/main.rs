@@ -22,7 +22,7 @@ enum Commands {
     },
 
     /// Dumps file information from the index
-    Dump {},
+    Dump,
 }
 
 fn main() -> eyre::Result<()> {
