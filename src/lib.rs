@@ -5,7 +5,7 @@ use sha256::try_digest;
 use std::path::PathBuf;
 use walkdir::{DirEntry, WalkDir};
 
-pub fn add(verbose: bool, path: &String) -> eyre::Result<()> {
+pub fn add(verbose: bool, path: &str) -> eyre::Result<()> {
     let conn = Connection::open("files.db")?;
 
     conn.execute(
