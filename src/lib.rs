@@ -20,7 +20,7 @@ pub fn add(verbose: bool, path: &str) -> eyre::Result<()> {
     let mut insert_statement =
         conn.prepare("INSERT OR REPLACE INTO files (filename, sha256, size) VALUES (?, ?, ?)")?;
 
-    eprintln!("Recursively indexing path: {}", path);
+    eprintln!("Recursively indexing path: {path}");
 
     for entry in WalkDir::new(path)
         .into_iter()
@@ -34,7 +34,7 @@ pub fn add(verbose: bool, path: &str) -> eyre::Result<()> {
             let size = full_path.metadata()?.len().to_string();
 
             if verbose {
-                eprintln!("  {}, {}, {}", full_path, sha256, size);
+                eprintln!("  {full_path}, {sha256}, {size}");
             }
 
             insert_statement.execute([full_path.as_str(), sha256.as_str(), size.as_str()])?;
