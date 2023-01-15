@@ -7,3 +7,4 @@ find-duplicates:
 test:
 	cargo test
 	cargo clippy --all-targets --all-features
+	cargo fmt --check
