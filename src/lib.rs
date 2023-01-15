@@ -22,6 +22,9 @@ pub fn add(verbose: bool, path: &str) -> eyre::Result<()> {
 
     eprintln!("Recursively indexing path: {path}");
 
+    conn.execute("BEGIN", [])?;
+    let mut files_processed = 0;
+
     for entry in WalkDir::new(path)
         .into_iter()
         .filter_entry(|e| !ignore_entry(e))
@@ -38,8 +41,15 @@ pub fn add(verbose: bool, path: &str) -> eyre::Result<()> {
             }
 
             insert_statement.execute([full_path.as_str(), sha256.as_str(), size.as_str()])?;
+
+            files_processed += 1;
+            if files_processed % 1000 == 0 {
+                conn.execute("COMMIT", [])?;
+                conn.execute("BEGIN", [])?;
+            }
         }
     }
+    conn.execute("COMMIT", [])?;
 
     Ok(())
 }
