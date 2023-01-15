@@ -1,9 +1,8 @@
 use color_eyre::eyre;
-use findex;
 
 #[test]
 fn add_and_query() -> eyre::Result<()> {
-    findex::add(false, &"tests/test_data".to_string())?;
+    findex::add(false, "tests/test_data")?;
 
     let entries = findex::query()?;
 

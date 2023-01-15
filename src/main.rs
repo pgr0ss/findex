@@ -1,6 +1,5 @@
 use clap::{Parser, Subcommand};
 use color_eyre::eyre;
-use findex;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about=None)]
