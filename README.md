@@ -1,5 +1,7 @@
 # findex
 
+[![Rust](https://github.com/pgr0ss/findex/actions/workflows/rust.yml/badge.svg)](https://github.com/pgr0ss/findex/actions/workflows/rust.yml)
+
 Recursively index files and store results in a sqlite database.
 
 Note that this is mostly a project to help me learn Rust.
