@@ -10,7 +10,7 @@ edition = "2021"
 camino = "1.1.2"
 clap = { version = "4.1.1", features = ["derive"] }
 color-eyre = "0.6.2"
-flamegraph = "0.5.1"
+flamegraph = "0.6.2"
 rusqlite = { version = "0.28.0", features = ["bundled"] }
 sha256 = "1.1.1"
 walkdir = "2"
