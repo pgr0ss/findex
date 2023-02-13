@@ -59,7 +59,7 @@ pub fn dump(verbose: bool) -> eyre::Result<()> {
 
     for entry in entries {
         if verbose {
-            println!("{:?}", entry);
+            println!("{entry:?}");
         } else {
             println!("{}", entry.filename);
         }
