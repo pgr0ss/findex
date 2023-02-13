@@ -11,3 +11,6 @@ test:
 	cargo test
 	cargo clippy --all-targets --all-features
 	cargo fmt --check
+
+update:
+	rustup update stable
