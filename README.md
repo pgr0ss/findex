@@ -9,8 +9,8 @@ Note that this is mostly a project to help me learn Rust.
 ## Usage
 
 Current operations:
-- Add files to the index db: `findex --verbose add <path>`
-- Dump the contents: `findex --verbose dump`
+- Add files to the index db: `findex add --verbose <path>`
+- Dump the contents: `findex dump --verbose`
 
 And then you can query the db with sql, such as finding duplications:
 
@@ -24,7 +24,7 @@ Help text:
 % findex -h
 Recursively index files and store results in a sqlite database
 
-Usage: findex [OPTIONS] <COMMAND>
+Usage: findex <COMMAND>
 
 Commands:
   add   Adds files to the index
@@ -32,9 +32,8 @@ Commands:
   help  Print this message or the help of the given subcommand(s)
 
 Options:
-  -v, --verbose
-  -h, --help     Print help information
-  -V, --version  Print version information
+  -h, --help     Print help
+  -V, --version  Print version
 ```
 
 ## Development

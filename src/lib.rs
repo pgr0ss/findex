@@ -5,7 +5,7 @@ use sha256::try_digest;
 use std::path::PathBuf;
 use walkdir::{DirEntry, WalkDir};
 
-pub fn add(verbose: bool, path: &str) -> eyre::Result<()> {
+pub fn add(verbose: &bool, path: &str) -> eyre::Result<()> {
     let conn = Connection::open("files.db")?;
 
     conn.execute(
@@ -36,7 +36,7 @@ pub fn add(verbose: bool, path: &str) -> eyre::Result<()> {
             let sha256 = try_digest(full_path.as_std_path())?;
             let size = full_path.metadata()?.len().to_string();
 
-            if verbose {
+            if *verbose {
                 eprintln!("  {full_path}, {sha256}, {size}");
             }
 
@@ -54,11 +54,11 @@ pub fn add(verbose: bool, path: &str) -> eyre::Result<()> {
     Ok(())
 }
 
-pub fn dump(verbose: bool) -> eyre::Result<()> {
+pub fn dump(verbose: &bool) -> eyre::Result<()> {
     let entries = query()?;
 
     for entry in entries {
-        if verbose {
+        if *verbose {
             println!("{entry:?}");
         } else {
             println!("{}", entry.filename);

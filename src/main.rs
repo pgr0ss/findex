@@ -5,9 +5,6 @@ use color_eyre::eyre;
 #[command(author, version, about, long_about=None)]
 #[command(propagate_version = true)]
 struct Cli {
-    #[arg(short, long, default_value_t = false)]
-    verbose: bool,
-
     #[command(subcommand)]
     command: Commands,
 }
@@ -18,10 +15,16 @@ enum Commands {
     Add {
         #[arg(default_value = ".", help = "The path to recursively index")]
         path: String,
+
+        #[arg(short, long, default_value_t = false)]
+        verbose: bool,
     },
 
     /// Dumps file information from the index
-    Dump,
+    Dump {
+        #[arg(short, long, default_value_t = false)]
+        verbose: bool,
+    },
 }
 
 fn main() -> eyre::Result<()> {
@@ -30,7 +33,7 @@ fn main() -> eyre::Result<()> {
     let cli = Cli::parse();
 
     match &cli.command {
-        Commands::Add { path } => findex::add(cli.verbose, path),
-        Commands::Dump {} => findex::dump(cli.verbose),
+        Commands::Add { path, verbose } => findex::add(verbose, path),
+        Commands::Dump { verbose } => findex::dump(verbose),
     }
 }

@@ -2,7 +2,7 @@ use color_eyre::eyre;
 
 #[test]
 fn add_and_query() -> eyre::Result<()> {
-    findex::add(false, "tests/test_data")?;
+    findex::add(&false, "tests/test_data")?;
 
     let entries = findex::query()?;
 
