@@ -44,4 +44,4 @@ Normal cargo operations:
 - Build debug version: `cargo build`
 - Build release version: `cargo build --release`
 
-A few helpers in the `Makefile`.
+A few helpers in the `justfile`, such as `just test`.
