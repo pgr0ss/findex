@@ -291,9 +291,9 @@ dependencies = [
 
 [[package]]
 name = "cargo_metadata"
-version = "0.15.4"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eee4243f1f26fc7a42710e7439c149e2b10b05472f88090acce52632f231a73a"
+checksum = "2d886547e41f740c616ae73108f6eb70afe6d940c7bc697cb30f13daec073037"
 dependencies = [
  "camino",
  "cargo-platform",
@@ -578,9 +578,9 @@ dependencies = [
 
 [[package]]
 name = "flamegraph"
-version = "0.6.3"
+version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "be72bf9a0e0e0dbf0903f3dd6423c57a37b61bf851ae18a3bd47c1a8da604c4d"
+checksum = "5b98762442cc965d8e0d3885dfe7cc3084d341465d5589a8ba659b74fa4c8c3b"
 dependencies = [
  "anyhow",
  "blondie",
