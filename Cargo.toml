@@ -8,7 +8,7 @@ edition = "2021"
 
 [dependencies]
 camino = "1.1.6"
-clap = { version = "4.4.13", features = ["derive"] }
+clap = { version = "4.4.16", features = ["derive"] }
 color-eyre = "0.6.2"
 flamegraph = "0.6.4"
 rusqlite = { version = "0.30.0", features = ["bundled"] }
