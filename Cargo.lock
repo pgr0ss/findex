@@ -584,9 +584,9 @@ dependencies = [
 
 [[package]]
 name = "flamegraph"
-version = "0.6.4"
+version = "0.6.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5b98762442cc965d8e0d3885dfe7cc3084d341465d5589a8ba659b74fa4c8c3b"
+checksum = "3da1f6b64e11ddd0f00d7920382085230b3814eacf96132d29474f7693485b4f"
 dependencies = [
  "anyhow",
  "blondie",
